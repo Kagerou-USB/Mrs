@@ -1,0 +1,13 @@
+package com.usb.mrs.domain.repository.room;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.usb.mrs.domain.model.ReservableRoom;
+import com.usb.mrs.domain.model.ReservableRoomId;
+
+public interface ReservableRoomRepository extends JpaRepository<ReservableRoom, ReservableRoomId> {
+    List<ReservableRoom> findByReservableRoomId_reservedDateOrderByReservableRoomId_roomIdAsc(LocalDate reservedDate);
+}
